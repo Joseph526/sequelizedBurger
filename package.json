@@ -1,0 +1,28 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "App to eat a burger",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joseph526/burger.git"
+  },
+  "author": "Joseph Bucher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joseph526/burger/issues"
+  },
+  "homepage": "https://github.com/Joseph526/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {}
+}
