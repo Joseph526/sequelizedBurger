@@ -23,10 +23,15 @@ module.exports = function(app) {
     });
 
     app.put("/api/burgers/:id", function(req, res) {
-        var condition = "id = " + req.params.id;
+        var condition = req.params.id;
         db.Burger.update({
             devoured: true
-        }, condition, function(result) {
+        }, 
+        {
+            where: {
+                id: condition
+            }
+        }).then(function(result) {
             if (result.changedRows == 0) {
                 return res.status(404).end();
             }
