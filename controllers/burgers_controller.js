@@ -8,27 +8,23 @@ var db = require("../models");
 module.exports = function(app) {
     // Declare the routes
     app.get("/", function(req, res) {
-        db.Burger.findAll({}).then(function(data) {
+        db.Burger.findAll({}).then(function(result) {
             var hbsObject = {
-                burgers: data
+                burgers: result
             };
             res.render("index", hbsObject);
         });
     });
 
     app.post("/api/burgers", function(req, res) {
-        burger.insertOne([
-            "burger_name", "devoured"
-        ], [
-                req.body.burger_name, req.body.devoured
-            ], function(result) {
+        db.Burger.create(req.body).then(function(result) {
                 res.json({ id: result.insertId });
             });
     });
 
     app.put("/api/burgers/:id", function(req, res) {
         var condition = "id = " + req.params.id;
-        burger.updateOne({
+        db.Burger.update({
             devoured: true
         }, condition, function(result) {
             if (result.changedRows == 0) {
