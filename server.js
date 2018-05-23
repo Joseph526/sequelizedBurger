@@ -27,9 +27,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Require routes for API endpoints
-var routes = require("./controllers/burgers_controller.js");
+var routes = require("./controllers/burgers_controller.js")(app);
 
-app.use(routes);
+// app.use(routes);
 
 // Sync Sequelize models and start the server to begin listening
 db.sequelize.sync().then(function() {
